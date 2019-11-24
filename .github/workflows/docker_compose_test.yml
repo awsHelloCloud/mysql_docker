@@ -23,4 +23,5 @@ jobs:
         run: docker-compose up -d
       - name: Test
         run: docker ps -a
-      
+      - name: Verify
+        run: docker exec -it mysql_docker_mysql_1 /bin/bash && mysql -u root -h 127.0.0.1 -p && 123456
