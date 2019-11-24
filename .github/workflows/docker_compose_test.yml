@@ -1,0 +1,32 @@
+name: docker_compose_test_yml
+on: 
+  push:
+    branches: 
+      -  master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    env:
+      MYSQL_INITDB: test
+      MYSQL_USER: yuanyu
+      MYSQL_PASSWD: 12345
+      MYSQL_ROOT_PASSWD: 123456
+      MYSQL_DIR: .
+      MYSQL_HOST: 127.0.0.1
+#     env:
+#       MYSQL_INITDB:test
+#       MYSQL_USER:yuanyu
+#       MYSQL_PASSWD:12345
+#       MYSQL_ROOT_PASSWD:123456
+#       MYSQL_DIR:.
+#       MYSQL_HOST:127.0.0.1
+      
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build the stack
+        run: docker-compose up -d
+      - name: Test
+        run: docker ps -a
+      
