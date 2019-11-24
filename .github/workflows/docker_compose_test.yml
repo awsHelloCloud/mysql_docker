@@ -15,6 +15,7 @@ jobs:
       MYSQL_ROOT_PASSWD: 123456
       MYSQL_DIR: .
       MYSQL_HOST: 127.0.0.1
+      MYSQL_PORT: 3307
       
     steps:
       - uses: actions/checkout@v1

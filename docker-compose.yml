@@ -10,7 +10,7 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWD}
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWD}
     ports:
-      - 3306:3306
+      - ${MYSQL_PORT}:3306
       - 33060:33060
     volumes:
       - ${MYSQL_DIR}/mysql:/var/lib/mysql
